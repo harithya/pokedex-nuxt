@@ -83,5 +83,16 @@ export default defineNuxtConfig({
   image:{
     domains:['raw.githubusercontent.com','upload.wikimedia.org'],
     format: ['webp']
-  }
+  },
+  app:{
+    pageTransition: {
+      name: 'fade',
+      mode: 'out-in' // default
+    },
+    layoutTransition: {
+      name: 'slide',
+      mode: 'out-in' // default
+    }
+  },
+  
 })

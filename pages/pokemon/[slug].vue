@@ -57,5 +57,19 @@ const { data } = await useAsyncData('pokemon-detail', async () => {
 
 const pokemon = data.value.variations[0];
 const color = pokemonColor(pokemon.types[0], 0.8);
+const statusBar = pokemonColor(pokemon.types[0], 1);
 
+useHead({
+    title: `${pokemon.name} | Pokedex`,
+    meta: [
+        {
+            name: "description",
+            content: pokemon.description
+        },
+        {
+            name: "theme-color",
+            content: statusBar
+        }
+    ]
+})
 </script>
