@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout name="pokemon-detail">
+    <NuxtLayout name="pokemon-detail" :color="color">
         <NuxtImg
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.num}.png`"
             class=" w-[60%] mx-auto" loading="lazy" />

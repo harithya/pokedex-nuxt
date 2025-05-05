@@ -1,5 +1,5 @@
 <template>
-    <div class="xl:w-[30%] md:w-[50%]  w-full mx-auto min-h-screen relative ">
+    <div class="xl:w-[30%] md:w-[50%]  w-full mx-auto min-h-screen relative " :style="{ backgroundColor: color }">
         <img src="/image/wm.png" class="absolute top-0 right-0 lg:w-[60%] w-[60%] object-contain z-0" />
         <div class="h-16 flex items-center px-5 justify-between bg-transparent z-10 sticky top-0">
             <button @click=" router.back()" class="cursor-pointer">
@@ -22,5 +22,6 @@
 </template>
 
 <script setup>
+const props = defineProps(['color'])
 const router = useRouter();
 </script>
