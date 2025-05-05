@@ -11,8 +11,6 @@
 </template>
 
 <script setup>
-import { pokemonColor } from '~/shared/pokemonColor';
-
 const props = defineProps(['pokemon'])
 const { name, image, type } = props?.pokemon
 
