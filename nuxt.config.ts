@@ -81,5 +81,9 @@ export default defineNuxtConfig({
       enabled: true,
       type: 'module'
     }
+  },
+  image:{
+    provider: 'nuxt',
+    domains:['raw.githubusercontent.com','upload.wikimedia.org']
   }
 })
