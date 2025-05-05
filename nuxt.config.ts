@@ -83,7 +83,6 @@ export default defineNuxtConfig({
     }
   },
   image:{
-    provider: 'nuxt',
     domains:['raw.githubusercontent.com','upload.wikimedia.org']
   }
 })
