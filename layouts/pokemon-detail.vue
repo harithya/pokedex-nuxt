@@ -1,7 +1,7 @@
 <template>
-    <div class="xl:w-[30%] md:w-[50%]  w-full mx-auto min-h-screen relative " :style="{ backgroundColor: color }">
+    <div class="xl:w-[30%] md:w-[50%]  w-full mx-auto min-h-screen relative ">
         <img src="/image/wm.png" class="absolute top-0 right-0 lg:w-[60%] w-[60%] object-contain z-0" />
-        <div class="h-16 flex items-center px-5 justify-between bg-transparent z-10">
+        <div class="h-16 flex items-center px-5 justify-between bg-transparent z-10 sticky top-0">
             <button @click=" router.back()" class="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6 text-white">
@@ -22,6 +22,5 @@
 </template>
 
 <script setup>
-const props = defineProps(['color'])
 const router = useRouter();
 </script>

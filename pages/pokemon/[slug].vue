@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout name="pokemon-detail" :color="color">
+    <NuxtLayout name="pokemon-detail">
         <NuxtImg
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.num}.png`"
             class=" w-[60%] mx-auto" loading="lazy" />
@@ -33,9 +33,22 @@
                     <p>:</p>
                     <p>{{ pokemon.specie }} </p>
                 </div>
+            </div>
+            <div class="mt-5">
+                <h2 class="text-lg font-bold text-gray-700 mb-3">Statistic Basic</h2>
+                <Stat label="HP" :color="baseColor" :value="pokemon.stats.hp" />
+                <Stat label="Attack" :color="baseColor" :value="pokemon.stats.attack" />
+                <Stat label="Defense" :color="baseColor" :value="pokemon.stats.defense" />
+                <Stat label="Speed" :color="baseColor" :value="pokemon.stats.speed" />
+                <Stat label="SP Attack" :color="baseColor" :value="pokemon.stats.speedAttack" />
+                <Stat label="SP Defense" :color="baseColor" :value="pokemon.stats.speedDefense" />
+            </div>
 
+            <div class="mt-5">
+                <h2 class="text-lg font-bold text-gray-700 mb-3">Evolution</h2>
             </div>
         </div>
+
 
     </NuxtLayout>
 </template>
@@ -57,7 +70,7 @@ const { data } = await useAsyncData('pokemon-detail', async () => {
 
 const pokemon = data.value.variations[0];
 const color = pokemonColor(pokemon.types[0], 0.8);
-const statusBar = pokemonColor(pokemon.types[0], 1);
+const baseColor = pokemonColor(pokemon.types[0], 1);
 
 useHead({
     title: `${pokemon.name} | Pokedex`,
@@ -68,7 +81,7 @@ useHead({
         },
         {
             name: "theme-color",
-            content: statusBar
+            content: baseColor
         }
     ]
 })

@@ -61,6 +61,9 @@ onMounted(() => {
     }
 })
 
+definePageMeta({
+    keepalive: true
+})
 // seo 
 useHead({
     title: "Home | Pokedex",
