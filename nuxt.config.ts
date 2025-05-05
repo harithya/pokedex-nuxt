@@ -13,9 +13,7 @@ export default defineNuxtConfig({
     ],
   },
   pwa:{
-    workbox:{
-
-    },
+   
     manifest: {
       name: 'Pokedex',
       short_name:'Pokedex',
@@ -83,6 +81,7 @@ export default defineNuxtConfig({
     }
   },
   image:{
-    domains:['raw.githubusercontent.com','upload.wikimedia.org']
+    domains:['raw.githubusercontent.com','upload.wikimedia.org'],
+    format: ['webp']
   }
 })

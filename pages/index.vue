@@ -11,7 +11,7 @@
     </div>
 
     <div class="grid grid-cols-2 gap-5 p-5">
-        <PokemonCard v-for="pokemon in pokemons" :key="pokemon.id" :pokemon="pokemon" />
+        <PokemonCard v-for="pokemon in pokemons" :key="pokemon.name" :pokemon="pokemon" />
     </div>
 
     <div ref="observer" class="h-10"></div>
