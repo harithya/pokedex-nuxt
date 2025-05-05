@@ -43,7 +43,7 @@
 <script setup>
 import Badge from '~/components/Badge.vue';
 import api from '~/services/axiosIntance';
-
+import { pokemonColor } from '~/shared/pokemonColor'
 
 definePageMeta({
     layout: false

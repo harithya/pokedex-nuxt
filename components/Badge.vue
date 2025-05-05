@@ -6,6 +6,7 @@
 
 <script setup>
 const props = defineProps(['type']);
+import { pokemonColor } from '~/shared/pokemonColor';
 
 const color = pokemonColor(props.type, 1)
 </script>
