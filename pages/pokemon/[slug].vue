@@ -4,7 +4,7 @@
         <NuxtImg
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.num}.png`"
             class=" w-[60%] mx-auto" loading="lazy" />
-        <div class=" bg-white mx-5 p-5 -mt-32 rounded-lg">
+        <div class=" bg-white mx-5 p-5 -mt-32 rounded-lg mb-5">
             <div class="mt-28 text-center">
                 <h1 class="font-bold text-3xl text-gray-700">{{ pokemon.name }}</h1>
                 <div class="flex flex-wrap gap-2 justify-center mt-3">
