@@ -1,14 +1,15 @@
 <template>
     <div class="xl:w-[30%] md:w-[50%]  w-full mx-auto min-h-screen relative " :style="{ backgroundColor: color }">
         <img src="/image/wm.png" class="absolute top-0 right-0 lg:w-[60%] w-[60%] object-contain z-0" />
-        <div class="h-16 flex items-center px-5 justify-between bg-transparent z-10 sticky top-0">
+        <div class="h-16 flex items-center px-5 justify-between bg-transparent z-10 sticky top-0  transition-colors duration-300"
+            :style="{ backgroundColor: headerColor }">
             <button @click=" router.back()" class="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
             </button>
-            <h1 class="font-bold text-white text-2xl">#004</h1>
+            <h1 class="font-bold text-white text-2xl">#{{ title }}</h1>
             <button>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6 text-white">
@@ -22,6 +23,24 @@
 </template>
 
 <script setup>
-const props = defineProps(['color'])
+import { onMounted, onUnmounted, ref } from 'vue'
+
+const props = defineProps(['color', 'baseColor', 'title'])
 const router = useRouter();
+
+const headerColor = ref('transparent')
+
+const updateHeaderColor = () => {
+    const scrolled = window.scrollY > 10
+    headerColor.value = scrolled ? props.baseColor : 'transparent'
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', updateHeaderColor)
+    updateHeaderColor()
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', updateHeaderColor)
+})
 </script>

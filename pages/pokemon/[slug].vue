@@ -1,5 +1,6 @@
 <template>
-    <NuxtLayout name="pokemon-detail" :color="color">
+    <NuxtLayout name="pokemon-detail" :color="color" :baseColor="baseColor"
+        :title="data?.num.toString().padStart(3, '0')">
         <NuxtImg
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.num}.png`"
             class=" w-[60%] mx-auto" loading="lazy" />
@@ -44,12 +45,17 @@
                 <Stat label="SP Defense" :color="baseColor" :value="pokemon.stats.speedDefense" />
             </div>
 
-            <div class="mt-5">
-                <h2 class="text-lg font-bold text-gray-700 mb-3">Evolution</h2>
-            </div>
+            <ClientOnly>
+                <div class="mt-5">
+                    <h2 class="text-lg font-bold text-gray-700 mb-3">Evolution</h2>
+                    <div class="flex space-x-5 overflow-auto">
+                        <Evolution v-for="evolution in pokemon.evolutions" :key="evolution" :name="evolution"
+                            :color="baseColor"
+                            :is-last="evolution === pokemon.evolutions[pokemon.evolutions.length - 1]" />
+                    </div>
+                </div>
+            </ClientOnly>
         </div>
-
-
     </NuxtLayout>
 </template>
 
@@ -71,7 +77,6 @@ const { data } = await useAsyncData('pokemon-detail', async () => {
 const pokemon = data.value.variations[0];
 const color = pokemonColor(pokemon.types[0], 0.8);
 const baseColor = pokemonColor(pokemon.types[0], 1);
-
 useHead({
     title: `${pokemon.name} | Pokedex`,
     meta: [
