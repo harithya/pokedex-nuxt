@@ -1,5 +1,7 @@
 <template>
-  <div class="xl:w-[30%] md:w-[50%] w-full mx-auto min-h-screen bg-white">
+  <div
+    class="xl:w-[30%] md:w-[50%] w-full mx-auto h-[100vh] bg-white flex flex-col"
+  >
     <div
       class="h-60 bg-orange-500 flex justify-center items-center flex-col p-5"
     >
@@ -12,7 +14,9 @@
         keras dan ketekunan."
       </p>
     </div>
-    <div class="flex justify-center mt-10 items-stretch">
+    <div
+      class="flex flex-col justify-center items-center w-full basis-full p-5"
+    >
       <slot />
     </div>
   </div>
