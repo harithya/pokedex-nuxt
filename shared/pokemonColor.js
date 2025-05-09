@@ -1,4 +1,4 @@
-export const pokemonColor = (type, opacity = 0.1) => {
+export const pokemonColor = (type, opacity = 0.1, isHex = false) => {
   const hexColors = {
     normal: "#AAA67F",
     fighting: "#C12239",
@@ -21,6 +21,7 @@ export const pokemonColor = (type, opacity = 0.1) => {
   };
 
   const hex = hexColors[type.toLowerCase()];
+  if (isHex) return hex || "#000000";
   if (!hex) return `rgba(0,0,0,${opacity})`;
 
   // Convert HEX to RGBA
